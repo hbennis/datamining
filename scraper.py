@@ -3,7 +3,7 @@ import urllib.request as urllib
 from bs4 import BeautifulSoup
 import http.cookiejar
 import requests
-from Pages import *
+#from Pages import *
 
 
 quote_page1 = 'http://www.seloger.com/list.htm?tri=initial&idtypebien=1&pxmax=1000&idtt=1&cp=75&naturebien=1,2,4'

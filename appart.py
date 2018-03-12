@@ -5,29 +5,31 @@ class Appart:
 
     def __init__(self, url):
 
-        variables = []
-        values = []
+        self._url = url
+        self._variables = []
+        self._values = []
         page = requests.get(url)
-        soup = BeautifulSoup(page.content, 'html.parser')
-        for each in soup.find_all('span', class_='List-data'):
-            variables.append(each.get_text())
+        self._soup = BeautifulSoup(page.content, 'html.parser')
+        for each in self._soup.find_all('span', class_='List-data'):
+            self._variables.append(each.get_text())
         for each in soup.find_all('strong', class_='List-value'):
-            values.append(each.get_text())
+            self._values.append(each.get_text())
 
-        self.set_postal_code(url)
-        self.set_nb_pieces(variables,values)
-        self.set_etage(variables, values)
-        self.set_mode_chauffage(variables,values)
-        self.set_nature_chauffage(variables,values)
-        self.set_surface_habitable(variables,values)
-        self.set_charges_annuelles(variables,values)
-        self.set_categorie(variables,values)
+        self.set_postal_code()
+        self.set_nb_pieces()
+        self.set_etage()
+        self.set_mode_chauffage()
+        self.set_nature_chauffage()
+        self.set_surface_habitable()
+        self.set_charges_annuelles()
+        self.set_categorie()
+        self.set_price(url)
 
     def get_variables(self, url):
         variables = []
         page = requests.get(url)
         soup = BeautifulSoup(page.content, 'html.parser')
-        for each in soup.find_all('span', class_='List-data'):
+        for each in self._soup.find_all('span', class_='List-data'):
             variables.append(each.get_text())
         return variables
 
@@ -44,10 +46,14 @@ class Appart:
         return self._postal_code
 
     def set_postal_code(self, url):
-        page = requests.get(url)
-        soup = BeautifulSoup(page.content, 'html.parser')
-        p = soup.find_all('p', class_='OfferTop-loc')
-        self._postal_code = p[0]["data-gtm-zipcode"]
+        try:
+            page = requests.get(url)
+            soup = BeautifulSoup(page.content, 'html.parser')
+            p = soup.find_all('p', class_='OfferTop-loc')
+            self._postal_code = p[0]["data-gtm-zipcode"]
+        except:
+            self._postal_code = "NA"
+
 
     @property
     def nb_pieces(self):
@@ -59,6 +65,19 @@ class Appart:
             self._nb_pieces = values[ind]
         except:
             self._nb_pieces = "NA"
+
+    @property
+    def price(self):
+        return self._price
+
+    def set_price(self, url):
+        try:
+            page = requests.get(url)
+            soup = BeautifulSoup(page.content, 'html.parser')
+            p = soup.find_all('p', class_='OfferTop-price')
+            self._price = p[0]
+        except:
+            self._price = "NA"
 
     @property
     def etage(self):
