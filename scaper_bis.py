@@ -23,7 +23,15 @@ class Appart:
         self.set_charges_annuelles()
         self.set_categorie()
         self.set_price()
-
+        self.set_taxe_fonciere()
+        self.set_taxe_ordure()
+        self.set_immo_taxe_habitation()
+        self.set_surface_carrez()
+        self.set_nb_lots()
+        self.set_copropriete_en_difficulte()
+        self.set_nb_etages()
+        self.set_nb_chambres()
+        self.set_date_construction()
 
 
     @property
@@ -113,3 +121,103 @@ class Appart:
             self._categorie = self._values[ind]
         except:
             self._categorie = "NA"
+
+    @property
+    def date_construction(self):
+        return self._date_construction
+
+    def set_date_construction(self):
+        try:
+            ind = self._variables.index('Construction')
+            self._date_construction = self._values[ind]
+        except:
+            self._date_construction = "NA"
+
+    @property
+    def nb_etages(self):
+        return self._nb_etages
+
+    def set_nb_etages(self):
+        try:
+            ind = self._variables.index("Nombre d'étages")
+            self._nb_etages = self._values[ind]
+        except:
+            self._nb_etages = "NA"
+    @property
+    def nb_chambres(self):
+        return self._nb_etages
+
+    def set_nb_chambres(self):
+        try:
+            ind = self._variables.index("Nombre de chambres")
+            self._nb_chambres = self._values[ind]
+        except:
+            self._nb_chambres = "NA"
+
+    @property
+    def copropriete_en_difficulte(self):
+        return self._copropriete_en_difficulte
+
+    def set_copropriete_en_difficulte(self):
+        try:
+            ind = self._variables.index("Coproprieté en difficulté")
+            self._copropriete_en_difficulte = self._values[ind]
+        except:
+            self._copropriete_en_difficulte = "NA"
+
+    @property
+    def nb_lots(self):
+        return self._nb_lots
+
+    def set_nb_lots(self):
+        try:
+            ind = self._variables.index("Nombre de lots")
+            self._nb_lots = self._values[ind]
+        except:
+            self._nb_lots = "NA"
+
+    @property
+    def surface_carrez(self):
+        return self._surface_carrez
+
+    def set_surface_carrez(self):
+        try:
+            ind = self._variables.index("Surface Carrez")
+            self._surface_carrez = self._values[ind]
+        except:
+            self._surface_carrez = "NA"
+
+    @property
+    def immo_taxe_habitation(self):
+        return self._surface_carrez
+
+    def set_immo_taxe_habitation(self):
+        try:
+            ind = self._variables.index("Taxe habitation")
+            self._immo_taxe_habitation = self._values[ind]
+        except:
+            self._immo_taxe_habitation = "NA"
+
+    @property
+    def taxe_ordure(self):
+        return self._taxe_ordure
+
+    def set_taxe_ordure(self):
+        try:
+            ind = self._variables.index("Taxe ordures ménagères")
+            self._taxe_ordure = self._values[ind]
+        except:
+            self._taxe_ordure = "NA"
+
+    @property
+    def taxe_fonciere(self):
+        return self._taxe_fonciere
+
+    def set_taxe_fonciere(self):
+        try:
+            ind = self._variables.index("Taxe foncière")
+            self._taxe_fonciere = self._values[ind]
+        except:
+            self._taxe_fonciere = "NA"
+
+

@@ -1,0 +1,10 @@
+,categorie,charges_annuelles,copropriete_en_difficulte,date_de_construction,etage,mode_chauffage,nature_chauffage,nb_chambres,nb_etages,nb_lots,nb_piece,postal_code,price,surface,taxe_fonciere,taxe_habitation,taxe_ordure
+0,Ancien,240 €,non,1890,7,Individuel,Electrique,7,7,23,Individuel,paris-75010,"
+                                                                            50 000 €
+                                                                    ",7 m²,NA,6.37 m²,NA
+1,Ancien,NA,non,1905,6,NA,NA,6,6,19,NA,paris-75017,"
+                                                                            57 000 €
+                                                                    ",6 m²,NA,6 m²,NA
+2,Ancien,132 €,non,1800,6,Sans,NA,6,6,31,Sans,paris-75003,"
+                                                                            60 000 €
+                                                                    ",5.69 m²,NA,5.69 m²,NA
