@@ -27,47 +27,22 @@ nb_chambres = []
 date_construction = []
 
 for url in tqdm(liste):
-    etages.append(Appart(url).etage)
-    surface.append(Appart(url).surface_habitable)
-    postal_code.append(url.split('/')[4])
-    nature_chauffage.append(Appart(url).nature_chauffage)
+
     mode_chauffage.append(Appart(url).mode_chauffage)
-    charges_annuelles.append(Appart(url).charges_annuelles)
-    categorie.append(Appart(url).categorie)
     nb_piece.append(Appart(url).nb_pieces)
-    price.append(Appart(url).price)
-    taxe_fonciere.append(Appart(url).taxe_fonciere)
-    taxe_ordure.append(Appart(url).taxe_ordure)
-    immo_taxe_habitation.append(Appart(url).immo_taxe_habitation)
-    nb_lots.append(Appart(url).nb_lots)
-    copropriete_en_difficulte.append(Appart(url).copropriete_en_difficulte)
-    nb_etages.append(Appart(url).nb_etages)
     nb_chambres.append(Appart(url).nb_chambres)
-    date_construction.append(Appart(url).date_construction)
 
 
 
 app = pd.DataFrame({
-        "etage": etages,
-        "surface": surface,
+
         "nb_piece": nb_piece,
-        "categorie": categorie,
-        "nature_chauffage": nature_chauffage,
         "mode_chauffage": mode_chauffage,
-        "charges_annuelles": charges_annuelles,
-        "price": price,
-        "postal_code": postal_code,
-        "taxe_fonciere": taxe_fonciere,
-        "taxe_habitation": immo_taxe_habitation,
-        "taxe_ordure": taxe_ordure,
-        "nb_lots": nb_lots,
-        "copropriete_en_difficulte": copropriete_en_difficulte,
-        "nb_etages": nb_etages,
-        "nb_chambres": nb_chambres,
-        "date_de_construction": date_construction
+        "nb_chambres": nb_chambres
     })
 print(app)
 
-#app.to_csv("/Users/khairallah/datamining/name.csv", sep=',')
+
+app.to_csv("/Users/khairallah/datamining/scrapping_app_test_nb_pieces_nb_chambres.csv", sep=',')
 
 

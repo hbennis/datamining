@@ -68,14 +68,14 @@ class Appart:
 
     @property
     def mode_chauffage(self):
-        return self._nb_pieces
+        return self._mode_chauffage
 
     def set_mode_chauffage(self):
         try:
             ind = self._variables.index('Mode chauffage')
-            self._nb_pieces = self._values[ind]
+            self._mode_chauffage = self._values[ind]
         except:
-            self._nb_pieces = "NA"
+            self._mode_chauffage = "NA"
 
     @property
     def nature_chauffage(self):
@@ -145,7 +145,7 @@ class Appart:
             self._nb_etages = "NA"
     @property
     def nb_chambres(self):
-        return self._nb_etages
+        return self._nb_chambres
 
     def set_nb_chambres(self):
         try:
